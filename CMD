@@ -1,0 +1,45 @@
+color A
+@echo off
+echo ----------------------------------------------------------------
+echo Created by Hussein Mossalam 16-8-2020
+echo change extentiion as you like
+echo check zip path
+echo add output folder path
+echo ----------------------------------------------------------------
+@echo off
+
+echo zip as per  file extenion for examle 'Bak'  'change extention'
+
+@echo off
+
+FOR %%A IN (*.Bak) DO "C:\Program Files (x86)\WinRAR\WinRAR.exe" a -r "%%~nA.zip" "%%A"
+
+echo  Bak file has been zip
+
+@echo off
+
+echo ---------------------------------------------------------------------------------------------------------------------
+@echo off
+echo Backup Zip files to Path as you need 'add the path'
+
+MD E:\Solution_Backup
+
+REM zip all files in the backup directory
+
+FOR %%A IN (*.Bak) DO "C:\Program Files (x86)\WinRAR\WinRAR.exe" a -r "%%~nA.zip" "%%A"
+
+FOR %%A IN (*.Bak) DO DEL "*.Bak" "%%A"
+
+move *.zip E:\Solution_Backup
+
+echo Zip fil Backed and move to E:\Solution_Backup
+
+@echo off
+echo  -------------------------------------------------------------------------------------------------------------------------------
+@echo off
+echo change extend files as per you need for example "Ba" to delete
+FOR %%A IN (*.Bak) DO del a -r "%%~nA.zip" "%%A"
+
+echo files after Zipped has been deleted
+@echo off
+pause
